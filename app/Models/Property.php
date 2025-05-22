@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support;
@@ -45,6 +46,16 @@ public function getImageUrlAttribute()
     return $this->images->isNotEmpty()
         ? asset('storage/' . $this->images->first()->path)
         : asset('images/placeholder.jpg');
+}
+/**
+ * Scope a query to only include available properties.
+ *
+ * @param  \Illuminate\Database\Eloquent\Builder  $builder
+ * @return \Illuminate\Database\Eloquent\Builder
+ */
+public function scopeAvailable(Builder $builder)
+{
+    return $builder->where('sold', false);
 }
 
 }
