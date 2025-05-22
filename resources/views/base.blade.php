@@ -8,7 +8,7 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     </script>
-@vite('resources/js/app.js', 'resources/css/app.css')
+
    
     <title>@yield('title') Mon Agence</title>
 </head>
